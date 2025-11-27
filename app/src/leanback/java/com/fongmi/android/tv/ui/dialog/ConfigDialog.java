@@ -32,7 +32,29 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 public class ConfigDialog implements DialogInterface.OnDismissListener {
+    /**
+     *
+     饭太硬主接口
+     http://www.饭太硬.com/tv
 
+     饭太硬备用接口（1）
+     http://www.饭太硬.net/tv
+
+     饭太硬备用接口（2）
+     http://www.饭太硬.xyz/tv
+
+     饭太硬备用接口（3）
+     http://fty.xxooo.cf/tv
+
+     饭太硬备用接口（4）
+     http://fty.888484.xyz/tv
+
+     饭太硬备用接口（5）
+     http://fty.333232.xyz/tv
+
+     饭太硬 江苏 郑州 专用接口
+     https://gitee.com/xxoooo/fan/raw/master/in.bmp
+     */
     private ActivityResultLauncher<Intent> launcher;
     private final DialogConfigBinding binding;
     private final ConfigCallback callback;
