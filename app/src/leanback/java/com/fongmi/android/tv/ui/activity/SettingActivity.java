@@ -79,13 +79,26 @@ public class SettingActivity extends BaseActivity implements ConfigCallback, Sit
 
     @Override
     protected void initView() {
-        mBinding.vod.requestFocus();
+        mBinding.lldefaultConfig.requestFocus();
         mBinding.vodUrl.setText(VodConfig.getDesc());
         mBinding.liveUrl.setText(LiveConfig.getDesc());
         mBinding.wallUrl.setText(WallConfig.getDesc());
         mBinding.versionText.setText(BuildConfig.VERSION_NAME);
         setCacheText();
         setOtherText();
+        mBinding.lldefaultConfig.setOnClickListener(view -> initDefaultConfig());
+    }
+
+    private void initDefaultConfig() {
+        Config vod=Config.find("http://www.饭太硬.com/tv", "测试", 0);
+        Config live=Config.find("http://www.饭太硬.com/tv", "测试", 1);
+        Config photo=Config.find("http://www.饭太硬.com/tv", "测试", 2);
+        load(vod);
+        load(live);
+//        load(photo);
+        //{"id":4,"name":"测试","time":0,"type":0,"url":"http://www.饭太硬.com/tv"}
+        //{"id":2,"name":"测试","time":1764228122473,"type":1,"url":"http://www.饭太硬.com/tv"}
+        //{"id":5,"name":"测试","time":0,"type":2,"url":"http://www.饭太硬.com/tv"}
     }
 
     private void setOtherText() {
@@ -137,6 +150,9 @@ public class SettingActivity extends BaseActivity implements ConfigCallback, Sit
         }
     }
 
+    //{"id":4,"name":"测试","time":0,"type":0,"url":"http://www.饭太硬.com/tv"}
+    //{"id":2,"name":"测试","time":1764228122473,"type":1,"url":"http://www.饭太硬.com/tv"}
+    //{"id":5,"name":"测试","time":0,"type":2,"url":"http://www.饭太硬.com/tv"}
     private void load(Config config) {
         switch (config.getType()) {
             case 0:

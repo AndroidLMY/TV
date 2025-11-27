@@ -108,6 +108,9 @@ public class ConfigDialog implements DialogInterface.OnDismissListener {
     private void initView() {
         binding.text.setText(url = getUrl());
         binding.text.setSelection(TextUtils.isEmpty(url) ? 0 : url.length());
+//        binding.text.setText("http://www.饭太硬.com/tv");
+//        binding.name.setText("测试");
+
         binding.positive.setText(edit ? R.string.dialog_edit : R.string.dialog_positive);
         binding.code.setImageBitmap(QRCode.getBitmap(Server.get().getAddress(3), 200, 0));
         binding.info.setText(ResUtil.getString(R.string.push_info, Server.get().getAddress()).replace("，", "\n"));
