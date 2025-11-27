@@ -12,9 +12,28 @@
         app:navigationIconTint="@android:color/white"
         app:title="@string/nav_setting"
         app:titleTextAppearance="@style/ToolbarTextAppearance" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lldefaultConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:focusable="true"
+        android:paddingStart="16dp"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/defaultConfig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="使用默认配置"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:overScrollMode="never">

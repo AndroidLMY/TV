@@ -62,7 +62,17 @@ public class SettingFragment extends BaseFragment implements ConfigCallback, Sit
     public static SettingFragment newInstance() {
         return new SettingFragment();
     }
-
+    private void initDefaultConfig() {
+        Config vod=Config.find("http://www.饭太硬.com/tv", "测试", 0);
+        Config live=Config.find("http://www.饭太硬.com/tv", "测试", 1);
+        Config photo=Config.find("http://www.饭太硬.com/tv", "测试", 2);
+        load(vod);
+        load(live);
+//        load(photo);
+        //{"id":4,"name":"测试","time":0,"type":0,"url":"http://www.饭太硬.com/tv"}
+        //{"id":2,"name":"测试","time":1764228122473,"type":1,"url":"http://www.饭太硬.com/tv"}
+        //{"id":5,"name":"测试","time":0,"type":2,"url":"http://www.饭太硬.com/tv"}
+    }
     private String getSwitch(boolean value) {
         return getString(value ? R.string.setting_on : R.string.setting_off);
     }
@@ -95,6 +105,8 @@ public class SettingFragment extends BaseFragment implements ConfigCallback, Sit
         mBinding.versionText.setText(BuildConfig.VERSION_NAME);
         setOtherText();
         setCacheText();
+        mBinding.lldefaultConfig.setOnClickListener(view -> initDefaultConfig());
+
     }
 
     private void setOtherText() {
