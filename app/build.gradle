@@ -44,11 +44,32 @@ android {
         buildConfig true
         viewBinding true
     }
+    signingConfigs {
+        debug {
+            storeFile file('tv.jks')
+            storePassword "tv20251127"
+            keyAlias "tv"
+            keyPassword "tv20251127"
+        }
 
+        release {
+            storeFile file('tv.jks')
+            storePassword "tv20251127"
+            keyAlias "tv"
+            keyPassword "tv20251127"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -81,6 +102,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+
 }
 
 dependencies {
